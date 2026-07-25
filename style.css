@@ -1,0 +1,271 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Inter', sans-serif;
+}
+
+body,
+.container,
+nav a,
+button {
+    transition: 0.5s ease;
+}
+body {
+    position: relative; 
+    background-color: #F6F6F6;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s ease;
+}
+
+.blob {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #C13B59;
+    clip-path: circle(30% at right 80%);
+    z-index: -1;
+    transition: background-color 0.4s ease, clip-path 0.4s ease;
+}
+
+.container {
+    background: rgba(240, 41, 124, 0.178);
+    padding: 20px 20px 40px 20px;
+    height: 80%;
+    width: 80%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-shadow: 0 20px 50px rgba(193, 59, 89, 0.35),
+                0 8px 20px rgba(193, 59, 89, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    gap: 5px;
+}
+
+.container nav li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.container nav li a {
+    text-decoration: none;
+    color: #C13B59;
+    font-size: 20px;
+    transition: color 0.4s ease;
+}
+
+.container nav li a:hover {
+    color: #F6F6F6;
+}
+
+.container nav .logo {
+    text-decoration: none;
+    font-weight: 700;
+    color: #C13B59;
+    font-size: 32px;
+    letter-spacing: 2px;
+    transition: color 0.4s ease;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    color: #C13B59;
+    transition: color 0.4s ease;
+    overflow: hidden;
+}
+
+h2,
+p {
+    transition: opacity .3s;
+}
+.content .text {
+    width: 40%;
+    padding-bottom: 20px;
+}
+
+.content .text h2 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content .text p {
+    line-height: 25px;
+    font-size: 18px;
+    margin: 10px;
+}
+
+/* fixed-size box so every flavor image displays at the same size */
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center 90%;
+    animation: float 5s ease-in-out infinite;
+    transition: filter 0.4s ease;
+}
+
+
+.image {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.action {
+    margin-top: 15px;
+    border: none;
+    color: #F6F6F6;
+    background-color: #C13B59;
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.action:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
+
+}
+
+/* Animation */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1150px) {
+    .image {
+        width: 250px;
+        height: 320px;
+    }
+
+    .blob {
+        clip-path: circle(28% at right 78%);
+    }
+
+    .content {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .content .text {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 950px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+
+    .blob {
+        clip-path: circle(35% at center bottom);
+    }
+
+    .container {
+        height: auto;
+        overflow: visible;
+    }
+
+    .content {
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+    }
+
+    .content .text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .image {
+        width: 280px;
+        height: 340px;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+        height: 600px;
+    }
+
+    .blob {
+        clip-path: circle(28% at center bottom);
+    }
+
+    nav {
+        width: 90%;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .container nav li a {
+        font-size: 16px;
+    }
+
+    .content {
+        width: 90%;
+    }
+
+    .content .text h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .content .text p {
+        font-size: 16px;
+    }
+
+    .image {
+        width: 220px;
+        height: 280px;
+    }
+}
